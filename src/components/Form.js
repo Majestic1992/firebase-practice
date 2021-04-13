@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MealItem from "./MealItem";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -37,27 +38,30 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={nameChangeHandler}
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={descriptionChangeHandler}
-      />
-      <input
-        type="number"
-        placeholder="price"
-        value={price}
-        onChange={priceChangeHandler}
-      />
-      <button>Submit</button>
-    </form>
+    <div>
+      <form onSubmit={onSubmitHandler}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={nameChangeHandler}
+        />
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={descriptionChangeHandler}
+        />
+        <input
+          type="number"
+          placeholder="price"
+          value={price}
+          onChange={priceChangeHandler}
+        />
+        <button>Submit</button>
+      </form>
+      <MealItem />
+    </div>
   );
 };
 
