@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MealItem from "./MealItem";
+import "./styles/Form.css";
 
 const Form = () => {
   const [name, setName] = useState("");
