@@ -25,16 +25,18 @@ const Form = () => {
       description: description,
       price: price,
     };
-    console.log(data);
     fetch(
       "https://react-http-practice-e111c-default-rtdb.firebaseio.com/orders.json",
       {
         method: "POST",
         body: JSON.stringify({
-          user: data,
+          order: data,
         }),
       }
     );
+    setName("");
+    setDescription("");
+    setPrice("");
   };
 
   return (
@@ -54,13 +56,12 @@ const Form = () => {
         />
         <input
           type="number"
-          placeholder="price"
+          placeholder="Price"
           value={price}
           onChange={priceChangeHandler}
         />
         <button>Submit</button>
       </form>
-      <MealItem />
     </div>
   );
 };
