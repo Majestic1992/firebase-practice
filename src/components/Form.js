@@ -32,6 +32,9 @@ const Form = () => {
         body: JSON.stringify({
           order: data,
         }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
       }
     );
     setName("");
@@ -56,6 +59,7 @@ const Form = () => {
         />
         <input
           type="number"
+          step=".01"
           placeholder="Price"
           value={price}
           onChange={priceChangeHandler}

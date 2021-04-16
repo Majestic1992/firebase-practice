@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import OrderItem from "./OrderItem";
 
 const OrderList = () => {
@@ -44,7 +44,6 @@ const OrderList = () => {
               description={order.description}
               price={order.price}
               orders={orders}
-              setOrders={setOrders}
               getOrders={getOrders}
             />
           ))
