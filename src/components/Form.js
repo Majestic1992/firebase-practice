@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/Form.css";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -44,20 +43,26 @@ const Form = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
+      <form
+        onSubmit={onSubmitHandler}
+        className="flex flex-col justify-center	items-center w-6/12 mx-auto bg-green-300	p-8"
+      >
         <input
+          className=" w-full p-5 mb-3"
           type="text"
           placeholder="Name"
           value={name}
           onChange={nameChangeHandler}
         />
         <input
+          className="w-full p-5 mb-3"
           type="text"
           placeholder="Description"
           value={description}
           onChange={descriptionChangeHandler}
         />
         <input
+          className="w-full p-5 mb-3"
           type="number"
           step=".01"
           placeholder="Price"
