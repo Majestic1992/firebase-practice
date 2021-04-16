@@ -24,18 +24,23 @@ const OrderItem = ({ id, name, description, price, getOrders }) => {
     getOrders();
   };
 
-  const editItem = async () => {
+  const editItem = () => {
     setForm(true);
+    setInputData({
+      editedName: name,
+      editedDescription: description,
+      editedPrice: price,
+    });
   };
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     const data = {
       name: inputData.editedName,
       description: inputData.editedDescription,
       price: inputData.editedPrice,
     };
-    fetch(
+    await fetch(
       `https://react-http-practice-e111c-default-rtdb.firebaseio.com/orders/${id}.json`,
       {
         method: "PUT",
@@ -52,7 +57,6 @@ const OrderItem = ({ id, name, description, price, getOrders }) => {
     <div>
       {form === true ? (
         <form onSubmit={onSubmitHandler}>
-          <button onClick={() => setForm(false)}>Stop edit</button>
           <input
             type="text"
             placeholder="Name"
@@ -76,6 +80,7 @@ const OrderItem = ({ id, name, description, price, getOrders }) => {
             name="editedPrice"
           />
           <button>Submit</button>
+          <button onClick={() => setForm(false)}>Stop edit</button>
         </form>
       ) : (
         <div>
